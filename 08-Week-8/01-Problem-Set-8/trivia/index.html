@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <title>Trivia!</title>
+    <script>
+        // TODO: Add code to check answers to questions
+        function checkAnswer(event) {
+            const button = event.target;
+            if (button.id == "correct") {
+                button.style.backgroundColor = "green";
+                button.parentElement.querySelector('.message').innerHTML = "Correct!";
+            } else {
+                button.style.backgroundColor = "red";
+                button.parentElement.querySelector('.message').innerHTML = "Incorrect!";
+            }
+        }
+
+        function checkInput(event) {
+            const button = event.target;
+            const userInput = button.parentElement.querySelector(".user-input");
+
+            if (userInput.value == "Switzerland") {
+                userInput.style.backgroundColor = "green";
+                button.parentElement.querySelector('.message').innerHTML = "Correct!";
+            } else {
+                userInput.style.backgroundColor = "red";
+                button.parentElement.querySelector('.message').innerHTML = "Incorrect!";
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Trivia!</h1>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <h2>Part 1: Multiple Choice </h2>
+            <hr>
+            <!-- TODO: Add multiple choice question here -->
+            <h3>What is the approximate ratio of people to sheep in New Zealand?</h3>
+            <button id="incorrect" onclick="checkAnswer(event)">6 people per 1 sheep</button>
+            <button id="incorrect" onclick="checkAnswer(event)">3 people per 1 sheep</button>
+            <button id="incorrect" onclick="checkAnswer(event)">1 person per 1 sheep</button>
+            <button id="incorrect" onclick="checkAnswer(event)">1 person per 3 sheep</button>
+            <button id="correct" onclick="checkAnswer(event)">1 person per 6 sheep</button>
+            <p class="message"></p>
+        </div>
+
+        <div class="section">
+            <h2>Part 2: Free Response</h2>
+            <hr>
+            <!-- TODO: Add free response question here -->
+            <h3>In which country is it illegal to own only one guinea pig, as a lone guinea pig might get lonely?</h3>
+            <input type="text" class="user-input">
+            <button onclick="checkInput(event)">Check Answer</button>
+            <p class="message"></p>
+        </div>
+    </div>
+</body>
+
+</html>
